@@ -1,0 +1,112 @@
+aid: sf-compute
+name: San Francisco Compute Company
+description: San Francisco Compute Company (SF Compute) operates a market for buying short-duration time
+  on H100 and H200 GPU clusters with no long-term contracts. Customers reserve VM nodes for any quantity,
+  duration, and start time through the sf CLI and the sfcompute.com Orders API, with managed Slurm and bare-metal
+  clusters available by request.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/sf-compute/refs/heads/main/apis.yml
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+type: Index
+access: 3rd-Party
+position: Producer
+tags:
+- AI
+- Cloud
+- Clusters
+- Compute
+- GPU
+- Machine Learning
+- Marketplace
+- Training
+apis:
+- aid: sf-compute:orders-api
+  name: SF Compute Orders API
+  description: The SF Compute Orders API is the REST control plane for placing, listing, and managing orders
+    that reserve GPU node-hours on H100 and H200 clusters. Orders specify node count, duration, and start
+    time. Authentication uses bearer tokens generated via the sf CLI.
+  humanURL: https://docs.sfcompute.com
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - Clusters
+  - GPU
+  - H100
+  - H200
+  - Orders
+  - REST
+  properties:
+  - type: Documentation
+    url: https://docs.sfcompute.com
+common:
+- type: Website
+  url: https://sfcompute.com
+- type: Developer
+  url: https://docs.sfcompute.com
+- type: Documentation
+  url: https://docs.sfcompute.com
+- type: SignUp
+  url: https://sfcompute.com/signup
+- type: Login
+  url: https://sfcompute.com/signin
+- type: Pricing
+  url: https://sfcompute.com/prices
+- type: Blog
+  url: https://sfcompute.com/blog
+- type: ChangeLog
+  url: https://sfcompute.com/changelog
+- type: Support
+  url: https://sfcompute.com/contact
+- type: GitHubOrganization
+  url: https://github.com/sfcompute
+- type: LinkedIn
+  url: https://www.linkedin.com/company/sf-compute
+- name: sf CLI
+  url: https://github.com/sfcompute/cli
+  type: CLI
+- name: Nodes API Go SDK
+  url: https://github.com/sfcompute/nodes-go
+  type: SDK
+- name: Nodes API TypeScript SDK
+  url: https://github.com/sfcompute/nodes-typescript
+  type: SDK
+- name: SFC Go SDK
+  url: https://github.com/sfcompute/sfc-go
+  type: SDK
+- name: SFC TypeScript SDK
+  url: https://github.com/sfcompute/sfc-sdk-typescript
+  type: SDK
+- type: Features
+  data:
+  - name: Market-Based GPU Pricing
+    description: Per-node hourly pricing fluctuates with supply and demand, with no long-term contracts.
+  - name: Flexible Node Reservations
+    description: Reserve any number of H100 or H200 nodes for custom durations and start times.
+  - name: Managed Slurm Clusters
+    description: Slurm-scheduled clusters available on request for larger training jobs.
+  - name: Bare Metal Clusters
+    description: Direct bare-metal access for advanced workloads on request.
+  - name: Hardware Failure Refunds
+    description: Automatic refunds for failed nodes with hardware-level monitoring.
+  - name: Cancel Anytime
+    description: Cancel or resell unused capacity without penalty.
+- type: GPUs
+  data:
+  - name: NVIDIA H100
+    description: 80GB Hopper GPU nodes available with market-based pricing (around $1.97/hr average).
+  - name: NVIDIA H200
+    description: 141GB HBM3e Hopper GPU nodes available for hourly and longer-term rental.
+  - name: NVIDIA B300
+    description: Blackwell Ultra GPU nodes listed as upcoming on the SF Compute roadmap.
+- type: Customers
+  data:
+  - name: NVIDIA
+  - name: Roboflow
+  - name: Datology
+  - name: Liquid AI
+  - name: MIT
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+  url: https://apievangelist.com
