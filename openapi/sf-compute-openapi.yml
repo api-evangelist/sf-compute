@@ -1,0 +1,315 @@
+openapi: 3.1.0
+info:
+  title: SF Compute API
+  description: |
+    SF Compute (San Francisco Compute Company) operates a market for buying
+    short-duration time on H100 and H200 GPU clusters. This OpenAPI definition
+    documents the public REST API surface advertised at https://docs.sfcompute.com.
+  version: v0
+servers:
+  - url: https://api.sfcompute.com/v0
+    description: Production
+security:
+  - bearerAuth: []
+tags:
+  - name: Account
+  - name: Money
+  - name: Nodes
+  - name: Orders
+  - name: VMs
+  - name: Images
+paths:
+  /api/account:
+    get:
+      tags: [Account]
+      summary: Get current account information
+      operationId: getAccount
+      responses:
+        '200':
+          description: Account information
+  /api/account/info:
+    get:
+      tags: [Account]
+      summary: Get account info (legacy)
+      operationId: getAccountInfo
+      responses:
+        '200':
+          description: Account info
+  /api/account/tokens:
+    get:
+      tags: [Account]
+      summary: List tokens
+      operationId: listTokens
+      responses:
+        '200':
+          description: List of tokens
+    post:
+      tags: [Account]
+      summary: Create token
+      operationId: createToken
+      responses:
+        '201':
+          description: Token created
+  /api/account/tokens/{id}:
+    delete:
+      tags: [Account]
+      summary: Delete token
+      operationId: deleteToken
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '204':
+          description: Token deleted
+  /api/money/balance:
+    get:
+      tags: [Money]
+      summary: Get current account balance
+      operationId: getBalance
+      responses:
+        '200': { description: Balance }
+  /api/money/credits:
+    get:
+      tags: [Money]
+      summary: Get current credit balance
+      operationId: getCredits
+      responses:
+        '200': { description: Credits }
+  /api/money/refunds:
+    get:
+      tags: [Money]
+      summary: Get refunds status
+      operationId: getRefunds
+      responses:
+        '200': { description: Refunds }
+  /api/money/transactions:
+    get:
+      tags: [Money]
+      summary: Get transactions
+      operationId: getTransactions
+      responses:
+        '200': { description: Transactions }
+  /api/nodes:
+    get:
+      tags: [Nodes]
+      summary: List nodes
+      operationId: listNodes
+      responses:
+        '200': { description: Nodes }
+    post:
+      tags: [Nodes]
+      summary: Create nodes
+      operationId: createNodes
+      responses:
+        '201': { description: Created }
+  /api/nodes/{id}:
+    get:
+      tags: [Nodes]
+      summary: Get node details
+      operationId: getNode
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Node }
+    delete:
+      tags: [Nodes]
+      summary: Delete node
+      operationId: deleteNode
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '204': { description: Deleted }
+  /api/nodes/{id}/extend:
+    post:
+      tags: [Nodes]
+      summary: Extend reservation
+      operationId: extendNode
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Extended }
+  /api/nodes/{id}/redeploy:
+    post:
+      tags: [Nodes]
+      summary: Redeploy node
+      operationId: redeployNode
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Redeployed }
+  /api/nodes/{id}/release:
+    post:
+      tags: [Nodes]
+      summary: Release node
+      operationId: releaseNode
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Released }
+  /api/orders:
+    get:
+      tags: [Orders]
+      summary: List orders
+      operationId: listOrders
+      responses:
+        '200': { description: Orders }
+    post:
+      tags: [Orders]
+      summary: Create order
+      operationId: createOrder
+      responses:
+        '201': { description: Created }
+  /api/orders/{id}:
+    get:
+      tags: [Orders]
+      summary: Get order details
+      operationId: getOrder
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Order }
+    delete:
+      tags: [Orders]
+      summary: Cancel order
+      operationId: cancelOrder
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '204': { description: Cancelled }
+  /api/vms/instances:
+    get:
+      tags: [VMs]
+      summary: List VM instances
+      operationId: listVmInstances
+      responses:
+        '200': { description: Instances }
+  /api/vms/replace:
+    post:
+      tags: [VMs]
+      summary: Replace VM
+      operationId: replaceVm
+      responses:
+        '200': { description: Replaced }
+  /api/vms/{id}/logs:
+    get:
+      tags: [VMs]
+      summary: Get VM logs
+      operationId: getVmLogs
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Logs }
+  /api/vms/{id}/ssh:
+    get:
+      tags: [VMs]
+      summary: Get SSH info
+      operationId: getVmSsh
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: SSH info }
+  /api/vms/{id}/startup-script:
+    get:
+      tags: [VMs]
+      summary: Get startup script
+      operationId: getVmStartupScript
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Script }
+    post:
+      tags: [VMs]
+      summary: Set startup script
+      operationId: setVmStartupScript
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Saved }
+  /api/vms/images:
+    get:
+      tags: [Images]
+      summary: List images
+      operationId: listImages
+      responses:
+        '200': { description: Images }
+  /api/images/upload/start:
+    post:
+      tags: [Images]
+      summary: Start image upload
+      operationId: startImageUpload
+      responses:
+        '200': { description: Upload session }
+  /api/images/upload/data:
+    post:
+      tags: [Images]
+      summary: Upload image data
+      operationId: uploadImageData
+      responses:
+        '200': { description: Chunk accepted }
+  /api/images/upload/complete:
+    post:
+      tags: [Images]
+      summary: Complete image upload
+      operationId: completeImageUpload
+      responses:
+        '200': { description: Upload complete }
+  /api/images/{id}/download:
+    get:
+      tags: [Images]
+      summary: Download image
+      operationId: downloadImage
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Image binary }
+  /health:
+    get:
+      tags: [Nodes]
+      summary: Health check
+      operationId: healthCheck
+      responses:
+        '200': { description: OK }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token
