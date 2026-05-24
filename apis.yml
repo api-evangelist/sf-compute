@@ -106,6 +106,8 @@ common:
   - name: Datology
   - name: Liquid AI
   - name: MIT
+- type: LLMsTxt
+  url: https://docs.sfcompute.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
