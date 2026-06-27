@@ -46,7 +46,7 @@ common:
   url: https://docs.sfcompute.com
 - type: Documentation
   url: https://docs.sfcompute.com
-- type: SignUp
+- type: Signup
   url: https://sfcompute.com/signup
 - type: Login
   url: https://sfcompute.com/signin
@@ -67,16 +67,16 @@ common:
   type: CLI
 - name: Nodes API Go SDK
   url: https://github.com/sfcompute/nodes-go
-  type: SDK
+  type: SDKs
 - name: Nodes API TypeScript SDK
   url: https://github.com/sfcompute/nodes-typescript
-  type: SDK
+  type: SDKs
 - name: SFC Go SDK
   url: https://github.com/sfcompute/sfc-go
-  type: SDK
+  type: SDKs
 - name: SFC TypeScript SDK
   url: https://github.com/sfcompute/sfc-sdk-typescript
-  type: SDK
+  type: SDKs
 - type: Features
   data:
   - name: Market-Based GPU Pricing
@@ -106,7 +106,7 @@ common:
   - name: Datology
   - name: Liquid AI
   - name: MIT
-- type: LLMsTxt
+- type: LlmsText
   url: https://docs.sfcompute.com/llms.txt
 maintainers:
 - FN: Kin Lane
