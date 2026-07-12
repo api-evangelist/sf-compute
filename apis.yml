@@ -40,6 +40,10 @@ apis:
   - type: Documentation
     url: https://docs.sfcompute.com
 common:
+- type: DomainSecurity
+  url: security/sf-compute-domain-security.yml
+- type: Authentication
+  url: authentication/sf-compute-authentication.yml
 - type: Website
   url: https://sfcompute.com
 - type: Developer
