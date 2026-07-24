@@ -1,0 +1,75 @@
+openapi: 3.1.0
+info:
+  title: SF Compute Account API
+  description: 'SF Compute (San Francisco Compute Company) operates a market for buying
+
+    short-duration time on H100 and H200 GPU clusters. This OpenAPI definition
+
+    documents the public REST API surface advertised at https://docs.sfcompute.com.
+
+    '
+  version: v0
+servers:
+- url: https://api.sfcompute.com/v0
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Account
+paths:
+  /api/account:
+    get:
+      tags:
+      - Account
+      summary: Get current account information
+      operationId: getAccount
+      responses:
+        '200':
+          description: Account information
+  /api/account/info:
+    get:
+      tags:
+      - Account
+      summary: Get account info (legacy)
+      operationId: getAccountInfo
+      responses:
+        '200':
+          description: Account info
+  /api/account/tokens:
+    get:
+      tags:
+      - Account
+      summary: List tokens
+      operationId: listTokens
+      responses:
+        '200':
+          description: List of tokens
+    post:
+      tags:
+      - Account
+      summary: Create token
+      operationId: createToken
+      responses:
+        '201':
+          description: Token created
+  /api/account/tokens/{id}:
+    delete:
+      tags:
+      - Account
+      summary: Delete token
+      operationId: deleteToken
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Token deleted
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token

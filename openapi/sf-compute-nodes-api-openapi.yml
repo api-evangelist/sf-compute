@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  title: SF Compute Account Nodes API
+  description: 'SF Compute (San Francisco Compute Company) operates a market for buying
+
+    short-duration time on H100 and H200 GPU clusters. This OpenAPI definition
+
+    documents the public REST API surface advertised at https://docs.sfcompute.com.
+
+    '
+  version: v0
+servers:
+- url: https://api.sfcompute.com/v0
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Nodes
+paths:
+  /api/nodes:
+    get:
+      tags:
+      - Nodes
+      summary: List nodes
+      operationId: listNodes
+      responses:
+        '200':
+          description: Nodes
+    post:
+      tags:
+      - Nodes
+      summary: Create nodes
+      operationId: createNodes
+      responses:
+        '201':
+          description: Created
+  /api/nodes/{id}:
+    get:
+      tags:
+      - Nodes
+      summary: Get node details
+      operationId: getNode
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Node
+    delete:
+      tags:
+      - Nodes
+      summary: Delete node
+      operationId: deleteNode
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted
+  /api/nodes/{id}/extend:
+    post:
+      tags:
+      - Nodes
+      summary: Extend reservation
+      operationId: extendNode
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Extended
+  /api/nodes/{id}/redeploy:
+    post:
+      tags:
+      - Nodes
+      summary: Redeploy node
+      operationId: redeployNode
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Redeployed
+  /api/nodes/{id}/release:
+    post:
+      tags:
+      - Nodes
+      summary: Release node
+      operationId: releaseNode
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Released
+  /health:
+    get:
+      tags:
+      - Nodes
+      summary: Health check
+      operationId: healthCheck
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token
