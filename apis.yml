@@ -4,7 +4,20 @@ description: San Francisco Compute Company (SF Compute) operates a market for bu
   on H100 and H200 GPU clusters with no long-term contracts. Customers reserve VM nodes for any quantity,
   duration, and start time through the sf CLI and the sfcompute.com Orders API, with managed Slurm and bare-metal
   clusters available by request.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sf-compute.png
 url: https://raw.githubusercontent.com/api-evangelist/sf-compute/refs/heads/main/apis.yml
 created: '2026-05-23'
 modified: '2026-05-23'
@@ -24,9 +37,10 @@ tags:
 apis:
 - aid: sf-compute:orders-api
   name: SF Compute Orders API
-  description: The SF Compute Orders API is the REST control plane for placing, listing, and managing orders
-    that reserve GPU node-hours on H100 and H200 clusters. Orders specify node count, duration, and start
-    time. Authentication uses bearer tokens generated via the sf CLI.
+  description: >-
+    The SF Compute Orders API is the REST control plane for placing, listing, and managing orders that
+    reserve GPU node-hours on H100 and H200 clusters. Orders specify node count, duration, and start time.
+    Authentication uses bearer tokens generated via the sf CLI.
   humanURL: https://docs.sfcompute.com
   baseURL: https://api.sfcompute.com/v0
   tags:
@@ -39,6 +53,66 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.sfcompute.com
+- aid: sf-compute:sf-compute-account-api
+  name: San Francisco Compute Company Account API
+  description: The Account API from San Francisco Compute Company — 4 operation(s) for account.
+  humanURL: https://docs.sfcompute.com
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/sf-compute-account-api-openapi.yml
+- aid: sf-compute:sf-compute-images-api
+  name: San Francisco Compute Company Images API
+  description: The Images API from San Francisco Compute Company — 5 operation(s) for images.
+  humanURL: https://docs.sfcompute.com
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/sf-compute-images-api-openapi.yml
+- aid: sf-compute:sf-compute-money-api
+  name: San Francisco Compute Company Money API
+  description: The Money API from San Francisco Compute Company — 4 operation(s) for money.
+  humanURL: https://docs.sfcompute.com
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - Money
+  properties:
+  - type: OpenAPI
+    url: openapi/sf-compute-money-api-openapi.yml
+- aid: sf-compute:sf-compute-nodes-api
+  name: San Francisco Compute Company Nodes API
+  description: The Nodes API from San Francisco Compute Company — 6 operation(s) for nodes.
+  humanURL: https://docs.sfcompute.com
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - Nodes
+  properties:
+  - type: OpenAPI
+    url: openapi/sf-compute-nodes-api-openapi.yml
+- aid: sf-compute:sf-compute-orders-api
+  name: San Francisco Compute Company Orders API
+  description: The Orders API from San Francisco Compute Company — 2 operation(s) for orders.
+  humanURL: https://docs.sfcompute.com
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/sf-compute-orders-api-openapi.yml
+- aid: sf-compute:sf-compute-vms-api
+  name: San Francisco Compute Company VMs API
+  description: The VMs API from San Francisco Compute Company — 5 operation(s) for vms.
+  humanURL: https://docs.sfcompute.com
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - VMs
+  properties:
+  - type: OpenAPI
+    url: openapi/sf-compute-vms-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/sf-compute-agentic-access.yml
