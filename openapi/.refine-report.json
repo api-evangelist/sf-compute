@@ -1,0 +1,24 @@
+{
+  "provider": "sf-compute",
+  "sources": [
+    "sf-compute-account-api-openapi.yml",
+    "sf-compute-images-api-openapi.yml",
+    "sf-compute-money-api-openapi.yml",
+    "sf-compute-nodes-api-openapi.yml",
+    "sf-compute-orders-api-openapi.yml",
+    "sf-compute-vms-api-openapi.yml"
+  ],
+  "outputs": [
+    "sf-compute-account-api-openapi.yml",
+    "sf-compute-images-api-openapi.yml",
+    "sf-compute-money-api-openapi.yml",
+    "sf-compute-nodes-api-openapi.yml",
+    "sf-compute-orders-api-openapi.yml",
+    "sf-compute-vms-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
